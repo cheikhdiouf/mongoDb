@@ -24,6 +24,7 @@ public class MongoDbApplication {
 	CommandLineRunner start(CategoryRepository categoryRepository, ProductRepository productRepository) {
 		categoryRepository.deleteAll();
 		return args -> {
+			
 			Stream.of("C1 Ordinateur", "C2 Clavier").forEach(c -> {
 
 				categoryRepository.save(new Category(c.split(" ")[0], c.split(" ")[1], new ArrayList<>()));
