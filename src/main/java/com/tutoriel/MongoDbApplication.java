@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.tutoriel.model.Category;
 import com.tutoriel.model.Product;
@@ -24,6 +25,7 @@ public class MongoDbApplication {
 	CommandLineRunner start(CategoryRepository categoryRepository, ProductRepository productRepository) {
 		categoryRepository.deleteAll();
 		return args -> {
+			
 			Stream.of("C1 Ordinateur", "C2 Clavier").forEach(c -> {
 
 				categoryRepository.save(new Category(c.split(" ")[0], c.split(" ")[1], new ArrayList<>()));
